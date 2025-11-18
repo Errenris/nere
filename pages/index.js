@@ -9,54 +9,120 @@ export default function Home() {
   const [open, setOpen] = useState(false)
 
   const addToCart = (p) => setCart(prev => [...prev, p])
-  const removeItem = (i) => setCart(prev => prev.filter((_,x)=> x!==i))
+  const removeItem = (i) => setCart(prev => prev.filter((_, x) => x !== i))
 
   const checkoutWA = () => {
     const list = cart.map(p => `- ${p.title} (${p.price})`).join('%0A')
     const wa = `https://wa.me/6289601570287?text=Halo%20min,%20checkout:%0A${list}
     ini bukti tf nya min`
-    window.open(wa,'_blank')
+    window.open(wa, '_blank')
   }
 
   return (
-    <div className="min-h-screen p-6 text-white bg-gradient-to-br from-black via-gray-900 to-gray-950">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50">
       <Head><title>NERESTORE</title></Head>
 
-      <div className="max-w-5xl mx-auto">
-        
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold">NERESTORE</h1>
-          <button 
-            onClick={()=>setOpen(true)} 
-            className="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold"
+      <div className="max-w-6xl mx-auto px-4 py-6 md:py-10">
+
+        {/* TOP BAR */}
+        <header className="flex items-center justify-between mb-6 md:mb-8">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-2xl bg-emerald-500 flex items-center justify-center font-bold text-sm shadow-lg">
+              NE
+            </div>
+            <div>
+              <h1 className="text-xl md:text-2xl font-bold tracking-wide">
+                NERESTORE
+              </h1>
+              <p className="text-xs md:text-sm text-slate-400">
+                Toko paket Canva murah & resmi
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setOpen(true)}
+            className="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 md:px-5 py-2 rounded-full text-xs md:text-sm font-semibold shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition"
           >
-            Keranjang ({cart.length})
+            <span>🛒 Keranjang</span>
+            <span className="inline-flex items-center justify-center min-w-[26px] h-[26px] rounded-full bg-black/10 text-xs">
+              {cart.length}
+            </span>
           </button>
-        </div>
+        </header>
 
-        {/* GRID PRODUK */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {products.map(p => (
-            <ProductCard key={p.id} product={p} addToCart={addToCart}/>
-          ))}
-        </div>
+        {/* HERO SECTION */}
+        <section className="mb-8 md:mb-10">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] md:text-xs text-emerald-200 mb-3">
+            <span className="text-emerald-400 text-base">●</span>
+            Paket Canva aman, garansi sesuai deskripsi
+          </div>
 
-        {/* ➜ LINK DI BAWAH PRODUK (BAGIAN YANG DITAMBAH) */}
-        <div className="flex justify-center mt-24 mb-10">
-          <a
-            href="https://sfl.gl/3ZfK"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl text-white font-semibold shadow-lg"
-          >
-            Kunjungi Web Akses di Sini
-          </a>
-        </div>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-2">
+            Upgrade Canva kamu dalam hitungan menit.
+          </h2>
+          <p className="text-sm md:text-base text-slate-300 max-w-2xl">
+            Pilih paket Canva Pro / Designer sesuai kebutuhanmu, bayar via QRIS
+            atau transfer, lalu tim kami akan proses dan konfirmasi lewat WhatsApp.
+          </p>
 
-        <CartModal 
+          <div className="mt-4 flex flex-wrap gap-2 text-[11px] md:text-xs text-slate-300">
+            <span className="px-3 py-1 rounded-full bg-slate-900/70 border border-white/5">
+              ⚡ Proses cepat & mudah
+            </span>
+            <span className="px-3 py-1 rounded-full bg-slate-900/70 border border-white/5">
+              💳 Pembayaran via QRIS / TF
+            </span>
+            <span className="px-3 py-1 rounded-full bg-slate-900/70 border border-white/5">
+              ✅ Support via WhatsApp
+            </span>
+          </div>
+        </section>
+
+        {/* PRODUK SECTION */}
+        <section className="rounded-3xl bg-slate-900/60 border border-white/5 p-4 md:p-6 backdrop-blur-sm shadow-[0_18px_60px_rgba(0,0,0,0.6)]">
+          <div className="flex items-center justify-between mb-4 md:mb-5">
+            <div>
+              <h3 className="text-lg md:text-xl font-semibold">
+                Pilih Paket Canva
+              </h3>
+              <p className="text-xs md:text-sm text-slate-400">
+                Tinggal klik tambah, lalu checkout lewat WhatsApp.
+              </p>
+            </div>
+            <span className="hidden md:inline-block text-xs text-slate-400">
+              {products.length} paket tersedia
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {products.map(p => (
+              <ProductCard key={p.id} product={p} addToCart={addToCart} />
+            ))}
+          </div>
+        </section>
+
+        {/* LINK BAWAH HALAMAN */}
+        <section className="mt-10 md:mt-14 mb-8">
+          <div className="flex flex-col items-center gap-2 text-center">
+            <p className="text-xs md:text-sm text-slate-400">
+              Butuh akses lain atau instruksi lebih lengkap?
+            </p>
+            <a
+              href="https://sfl.gl/3ZfK"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold text-white shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition"
+            >
+              🌐 Kunjungi halaman akses di sini
+            </a>
+          </div>
+        </section>
+
+        <CartModal
           open={open}
           cart={cart}
-          close={()=>setOpen(false)}
+          close={() => setOpen(false)}
           removeItem={removeItem}
           checkoutWA={checkoutWA}
         />
