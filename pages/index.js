@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-6 text-white bg-gradient-to-br from-black via-gray-900 to-gray-950">
-      <Head><title>NERESOTRE</title></Head>
+      <Head><title>NERESTORE</title></Head>
 
       <div className="max-w-5xl mx-auto">
         
