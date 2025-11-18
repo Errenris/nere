@@ -1,7 +1,9 @@
-export default function ProductCard({ product }) {
+import React from 'react'
+
+export default function ProductCard({ product, addToCart }) {
   return (
-    <div className="card flex flex-col gap-3">
-      <div className="h-40 rounded-md bg-slate-700 flex items-center justify-center overflow-hidden">
+    <div className="bg-gray-900 p-4 rounded-xl shadow-md flex flex-col gap-3">
+      <div className="h-40 rounded-md bg-gray-800 flex items-center justify-center overflow-hidden">
         <img src={product.image || '/placeholder.png'} alt={product.title} className="object-contain h-full" />
       </div>
       <div className="flex-1">
@@ -13,10 +15,12 @@ export default function ProductCard({ product }) {
           <div className="text-sm text-gray-300">Price</div>
           <div className="font-bold">{product.price}</div>
         </div>
-        <div className="flex gap-2">
-          <a href={product.link} target="_blank" rel="noreferrer" className="px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-sm">Access</a>
-          <button className="px-3 py-2 rounded-lg border border-slate-600 text-sm">Details</button>
-        </div>
+        <button 
+          onClick={() => addToCart(product)} 
+          className="px-3 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-sm"
+        >
+          Tambah
+        </button>
       </div>
     </div>
   )
