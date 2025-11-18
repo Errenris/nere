@@ -8,7 +8,11 @@ export default function Home() {
   const [cart, setCart] = useState([])
   const [open, setOpen] = useState(false)
 
-  const addToCart = (p) => setCart(prev => [...prev, p])
+const addToCart = (p) => {
+  setCart(prev => [...prev, p])  // masukin ke cart
+  setOpen(true)                  // LANGSUNG munculin popup keranjang
+}
+
   const removeItem = (i) => setCart(prev => prev.filter((_, x) => x !== i))
 
   const checkoutWA = () => {
