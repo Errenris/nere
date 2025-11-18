@@ -4,7 +4,7 @@ export default function Header() {
       <div className="flex items-center gap-3">
         <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-pink-600 to-yellow-400 flex items-center justify-center text-black font-bold">JS</div>
         <div>
-          <h1 className="text-xl font-semibold">JossStore</h1>
+          <h1 className="text-xl font-semibold">neresore</h1>
           <p className="text-xs text-gray-300">Digital products • Fast access</p>
         </div>
       </div>
