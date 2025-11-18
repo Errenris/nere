@@ -63,7 +63,7 @@ export default function Home() {
                 NERESTORE
               </h1>
               <p className="text-xs md:text-sm text-slate-400">
-                Toko paket Canva murah & resmi
+                Toko paket premium murah & resmi
               </p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
 
           <h2 className="text-2xl md:text-3xl font-semibold mb-2">
-            Upgrade Canva kamu dalam hitungan menit.
+            Upgrade premium kamu dalam hitungan menit.
           </h2>
           <p className="text-sm md:text-base text-slate-300 max-w-2xl">
             Pilih paket Canva Pro / Designer sesuai kebutuhanmu, bayar via QRIS
