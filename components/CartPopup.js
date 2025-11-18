@@ -3,6 +3,9 @@ import { useState } from 'react'
 export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
   const [showQR, setShowQR] = useState(false)
 
+  // GANTI LINK QRIS KAMU DI SINI
+  const QRIS_URL = "https://ibb.co.com/27r7Fpn2"
+
   if (!open) return null
 
   return (
@@ -13,7 +16,10 @@ export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
         {showQR && (
           <div className='absolute top-0 left-0 w-full h-full bg-black/90 flex flex-col justify-center items-center rounded-2xl p-4'>
             <h2 className='text-lg font-bold mb-3'>Scan QRIS</h2>
-            <img src="/qris.png" className="w-48 rounded-lg shadow-lg mb-3" />
+
+            {/* Gambar QRIS dari LINK */}
+            <img src={QRIS_URL} className="w-48 rounded-lg shadow-lg mb-3" />
+
             <button
               onClick={() => setShowQR(false)}
               className='bg-red-600 w-full py-2 rounded-lg'
@@ -50,7 +56,7 @@ export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
         </button>
 
         <a
-          href={`https://wa.me/628xxxxxxxxx?text=Mau checkout, total: Rp ${total}`}
+          href={`https://wa.me/628xxxxxxxxxx?text=Mau checkout, total: Rp ${total}`}
           className='block bg-green-600 hover:bg-green-700 text-center py-2 rounded-lg mb-2 w-full'
         >
           Checkout WhatsApp
