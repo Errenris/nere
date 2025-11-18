@@ -34,10 +34,23 @@ export default function Home() {
           </button>
         </div>
 
+        {/* GRID PRODUK */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {products.map(p => (
             <ProductCard key={p.id} product={p} addToCart={addToCart}/>
           ))}
+        </div>
+
+        {/* ➜ LINK DI BAWAH PRODUK (BAGIAN YANG DITAMBAH) */}
+        <div className="flex justify-center mt-24 mb-10">
+          <a
+            href="https://sfl.gl/3ZfK"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl text-white font-semibold shadow-lg"
+          >
+            Kunjungi Web Akses di Sini
+          </a>
         </div>
 
         <CartModal 
