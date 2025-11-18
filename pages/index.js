@@ -14,6 +14,9 @@ export default function Home() {
     message: ''
   })
 
+  // state untuk animasi "bump" di tombol keranjang
+  const [cartBump, setCartBump] = useState(false)
+
   const showToast = (message) => {
     setToast({ open: true, message })
 
@@ -26,6 +29,12 @@ export default function Home() {
   const addToCart = (p) => {
     setCart(prev => [...prev, p])
     showToast(`${p.title} berhasil ditambahkan ke keranjang`)
+
+    // trigger animasi tombol keranjang
+    setCartBump(true)
+    setTimeout(() => {
+      setCartBump(false)
+    }, 300) // durasi harus sama dengan animasi di CSS
   }
 
   const removeItem = (i) =>
@@ -62,7 +71,7 @@ export default function Home() {
 
           <button
             onClick={() => setOpen(true)}
-            className="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 md:px-5 py-2 rounded-full text-xs md:text-sm font-semibold shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition"
+            className={`inline-flex items-center gap-2 bg-yellow-400 text-black px-4 md:px-5 py-2 rounded-full text-xs md:text-sm font-semibold shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition ${cartBump ? 'cart-bump' : ''}`}
           >
             <span>🛒 Keranjang</span>
             <span className="inline-flex items-center justify-center min-w-[26px] h-[26px] rounded-full bg-black/10 text-xs">
@@ -148,15 +157,37 @@ export default function Home() {
         />
       </div>
 
-      {/* TOAST NOTIFICATION */}
-      {toast.open && (
-        <div className="fixed bottom-5 right-5 z-50">
-          <div className="px-4 py-3 rounded-2xl bg-emerald-500 text-sm text-slate-950 shadow-xl border border-emerald-300/60 flex items-center gap-2">
+      {/* TOAST NOTIFICATION - TENGAH BAWAH */}
+      <div className="fixed inset-x-0 bottom-5 z-50 flex justify-center pointer-events-none">
+        {toast.open && (
+          <div className="pointer-events-auto px-4 py-3 rounded-2xl bg-emerald-500 text-sm text-slate-950 shadow-xl border border-emerald-300/60 flex items-center gap-2">
             <span>✅</span>
             <span>{toast.message}</span>
           </div>
-        </div>
-      )}
+        )}
+      </div>
+
+      {/* ANIMASI GLOBAL */}
+      <style jsx global>{`
+        @keyframes cart-bump {
+          0% {
+            transform: translateY(0);
+          }
+          20% {
+            transform: translateY(-4px);
+          }
+          60% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+
+        .cart-bump {
+          animation: cart-bump 0.3s ease-out;
+        }
+      `}</style>
     </div>
   )
 }
