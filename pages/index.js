@@ -8,10 +8,28 @@ export default function Home() {
   const [cart, setCart] = useState([])
   const [open, setOpen] = useState(false)
 
-const addToCart = (p) => setCart(prev => [...prev, p])
+  // state untuk notif
+  const [toast, setToast] = useState({
+    open: false,
+    message: ''
+  })
 
+  const showToast = (message) => {
+    setToast({ open: true, message })
 
-  const removeItem = (i) => setCart(prev => prev.filter((_, x) => x !== i))
+    // auto hide setelah 2.5 detik
+    setTimeout(() => {
+      setToast(prev => ({ ...prev, open: false }))
+    }, 2500)
+  }
+
+  const addToCart = (p) => {
+    setCart(prev => [...prev, p])
+    showToast(`${p.title} berhasil ditambahkan ke keranjang`)
+  }
+
+  const removeItem = (i) =>
+    setCart(prev => prev.filter((_, x) => x !== i))
 
   const checkoutWA = () => {
     const list = cart.map(p => `- ${p.title} (${p.price})`).join('%0A')
@@ -129,6 +147,16 @@ const addToCart = (p) => setCart(prev => [...prev, p])
           checkoutWA={checkoutWA}
         />
       </div>
+
+      {/* TOAST NOTIFICATION */}
+      {toast.open && (
+        <div className="fixed bottom-5 right-5 z-50">
+          <div className="px-4 py-3 rounded-2xl bg-emerald-500 text-sm text-slate-950 shadow-xl border border-emerald-300/60 flex items-center gap-2">
+            <span>✅</span>
+            <span>{toast.message}</span>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
