@@ -19,7 +19,7 @@ export default function ProductCard({ product, addToCart }) {
           onClick={() => addToCart(product)} 
           className="px-3 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-sm"
         >
-          Tambah
+          Tambah Ke Keranjang
         </button>
       </div>
     </div>
