@@ -157,10 +157,14 @@ export default function Home() {
         />
       </div>
 
-      {/* TOAST NOTIFICATION - TENGAH BAWAH */}
-      <div className="fixed inset-x-0 bottom-5 z-50 flex justify-center pointer-events-none">
-        {toast.open && (
-          <div className="pointer-events-auto px-4 py-3 rounded-2xl bg-emerald-500 text-sm text-slate-950 shadow-xl border border-emerald-300/60 flex items-center gap-2">
+      {/* TOAST NOTIFICATION - TENGAH BAWAH + ANIMASI */}
+      <div
+        className={`fixed inset-x-0 bottom-5 z-50 flex justify-center pointer-events-none
+        transition-all duration-300
+        ${toast.open ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+      >
+        {toast.message && (
+          <div className="pointer-events-auto px-4 py-3 rounded-2xl bg-emerald-500 text-sm text-slate-950 shadow-xl border border-emerald-300/60 flex items-center gap-2 toast-pop">
             <span>✅</span>
             <span>{toast.message}</span>
           </div>
@@ -186,6 +190,25 @@ export default function Home() {
 
         .cart-bump {
           animation: cart-bump 0.3s ease-out;
+        }
+
+        @keyframes toast-pop {
+          0% {
+            transform: scale(0.9);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.02);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        .toast-pop {
+          animation: toast-pop 0.25s ease-out;
         }
       `}</style>
     </div>
