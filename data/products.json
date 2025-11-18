@@ -1,22 +1,22 @@
 [
   {
     "id": 1,
-    "title": "Canva Pro 1 Bulan",
-    "description": "Akses premium 30 hari",
+    "title": "CANVA PRO 1 BULAN",
+    "description": "Bisa akses semua ftur pro kecuali upload font sdb",
     "price": "4000",
     "image": "/placeholder.png"
   },
   {
     "id": 2,
-    "title": "canva designer",
-    "description": "Unlock semua fitur",
+    "title": "CANVA DESIGNER 1 BULAN",
+    "description": "Unlock semua fitur bisa upload ppt dsb",
     "price": "5000",
     "image": "/placeholder.png"
   },
   {
     "id": 3,
-    "title": "canva pro 1 tahun",
-    "description": "tidak bisa uploud font dsb",
+    "title": "CANVA PRO 1 TAHUN",
+    "description": "Bisa akses semua ftur pro kecuali upload font sdb",
     "price": "10000",
     "image": "/placeholder.png"
   }
