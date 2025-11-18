@@ -42,7 +42,7 @@ export default function Home() {
 
   const checkoutWA = () => {
     const list = cart.map(p => `- ${p.title} (${p.price})`).join('%0A')
-    const wa = `https://wa.me/6289601570287?text=Halo%20min,%20checkout:%0A${list}%20ini bukti tf nya min`
+    const wa = `https://wa.me/6289601570287?text=Halo%20min,%20checkout:%0A${list}%0A ini bukti tf nya min`
     window.open(wa, '_blank')
   }
 
