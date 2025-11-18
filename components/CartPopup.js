@@ -3,32 +3,31 @@ import { useState } from 'react'
 export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
   const [showQR, setShowQR] = useState(false)
 
-  // GANTI LINK QRIS KAMU DI SINI
-  const QRIS_URL = "https://i.ibb.co.com/QFVFJxbB/photo-2025-09-20-12-17-02.jpg"
+  const QRIS_URL = "https://i.ibb.co/QFVFJxbB/photo-2025-09-20-12-17-02.jpg"
 
   if (!open) return null
 
   return (
-    <div className='fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm flex justify-center items-center'>
+    <div className='fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm flex justify-center items-center z-[999]'>
+      
+      {/* QRIS FULLSCREEN POPUP – di atas semua */}
+      {showQR && (
+        <div className='fixed top-0 left-0 w-full h-full bg-black/90 flex flex-col justify-center items-center z-[9999] p-6'>
+          <h2 className='text-lg font-bold mb-3'>Scan QRIS</h2>
+
+          <img src={QRIS_URL} className="w-60 rounded-xl shadow-xl mb-4" />
+
+          <button
+            onClick={() => setShowQR(false)}
+            className='bg-red-600 w-full max-w-xs py-2 rounded-lg mt-3'
+          >
+            Tutup
+          </button>
+        </div>
+      )}
+
+      {/* Popup keranjang */}
       <div className='bg-gray-900 w-80 p-5 rounded-2xl shadow-xl relative'>
-
-        {/* Popup QRIS */}
-        {showQR && (
-          <div className='absolute top-0 left-0 w-full h-full bg-black/90 flex flex-col justify-center items-center rounded-2xl p-4'>
-            <h2 className='text-lg font-bold mb-3'>Scan QRIS</h2>
-
-            {/* Gambar QRIS dari LINK */}
-            <img src={QRIS_URL} className="w-48 rounded-lg shadow-lg mb-3" />
-
-            <button
-              onClick={() => setShowQR(false)}
-              className='bg-red-600 w-full py-2 rounded-lg'
-            >
-              Tutup
-            </button>
-          </div>
-        )}
-
         <h2 className='text-xl font-bold mb-3'>Keranjang</h2>
 
         {cart.length === 0 ? (
@@ -48,6 +47,7 @@ export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
 
         <p className='font-semibold text-lg mb-3'>Total: Rp {total}</p>
 
+        {/* TOMBOL QRIS */}
         <button
           onClick={() => setShowQR(true)}
           className='block bg-blue-600 hover:bg-blue-700 text-center py-2 rounded-lg mb-2 w-full'
@@ -55,6 +55,7 @@ export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
           Bayar via QRIS
         </button>
 
+        {/* Tombol WA */}
         <a
           href={`https://wa.me/628xxxxxxxxxx?text=Mau checkout, total: Rp ${total}`}
           className='block bg-green-600 hover:bg-green-700 text-center py-2 rounded-lg mb-2 w-full'
