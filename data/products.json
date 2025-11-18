@@ -1,18 +1,16 @@
 [
   {
-    "id": "canva-pro-1m",
-    "title": "Canva Pro - 1 Bulan",
-    "description": "Akses Canva Pro selama 1 bulan. Cocok untuk kebutuhan ringan dan editing cepat.",
-    "price": "Rp 7.000",
-    "image": "/placeholder.png",
-    "link": "https://t.me/your_telegram_here"
+    "id": 1,
+    "title": "Canva Pro 1 Bulan",
+    "description": "Akses premium 30 hari",
+    "price": "4000",
+    "image": "/placeholder.png"
   },
   {
-    "id": "capcut-pro-21d",
-    "title": "CapCut Pro - 21 Hari",
-    "description": "Trial premium CapCut — lifetime access ke shortcut dan template.",
-    "price": "Rp 7.000",
-    "image": "/placeholder.png",
-    "link": "https://t.me/your_telegram_here"
+    "id": 2,
+    "title": "canva designer",
+    "description": "Unlock semua fitur",
+    "price": "5000",
+    "image": "/placeholder.png"
   }
 ]
