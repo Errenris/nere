@@ -4,7 +4,7 @@ export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
   const [showQR, setShowQR] = useState(false)
 
   // GANTI LINK QRIS KAMU DI SINI
-  const QRIS_URL = "https://i.ibb.co/QFVFJxbB/photo-2025-09-20-12-17-02.jpg"
+  const QRIS_URL = "https://i.ibb.co.com/QFVFJxbB/photo-2025-09-20-12-17-02.jpg"
 
   if (!open) return null
 
