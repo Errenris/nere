@@ -19,12 +19,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-6 text-white bg-gradient-to-br from-black via-gray-900 to-gray-950">
-      <Head><title>Store Clone</title></Head>
+      <Head><title>NERESOTRE</title></Head>
 
       <div className="max-w-5xl mx-auto">
         
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold">NERESORE</h1>
+          <h1 className="text-2xl font-bold">NERESTORE</h1>
           <button 
             onClick={()=>setOpen(true)} 
             className="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold"
