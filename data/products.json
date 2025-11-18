@@ -2,14 +2,30 @@
   {
     "id": 1,
     "title": "Canva Pro 1 Bulan",
-    "description": "Akses premium 30 hari",
+    "description": "🔹 Member Biasa / pro
+➡ Hanya dapat fitur premium umum (PPT, elemen pro, dll)
+🚫 Tidak bisa upload font, brand kit, atau color palette",
     "price": "4000",
     "image": "/placeholder.png"
   },
   {
     "id": 2,
     "title": "canva designer",
-    "description": "Unlock semua fitur",
+    "description": "🔹 Template Designer
+➡ Bisa upload font, brand kit, dan color palette
+➡ Termasuk semua fitur premium (PPT, elemen pro, dll)
+",
+    "price": "5000",
+    "image": "/placeholder.png"
+  }
+  },
+    {
+    "id": 3,
+    "title": "canva pro 1 tahun",
+    "description": "🔹 Education / PRO 
+➡ Dapat fitur Education + akses premium (PPT, elemen pro, dll)
+🚫 Tidak bisa upload font, brand kit, atau color palette
+",
     "price": "5000",
     "image": "/placeholder.png"
   }
