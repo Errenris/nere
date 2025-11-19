@@ -13,9 +13,9 @@ export default function CartModal({ open, cart, close, removeItem, checkoutWA })
       {/* === MODE QRIS SAJA === */}
       {showQR && (
         <div className="w-full max-w-sm rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-800/90 p-5 shadow-2xl border border-white/10">
-          <h2 className="text-xl font-semibold mb-1">Scan QRIS</h2>
+          <h2 className="text-xl font-semibold mb-1">SCAN QRIS DI BAWAH, JIKA TIDAK MUNCUL SILAHKAN REFRESH BROWSER NYA YA 😊</h2>
           <p className="text-xs text-gray-300 mb-4">
-            Silakan lakukan pembayaran melalui QRIS. Setelah selesai, klik tombol di bawah
+            Silakan lakukan pembayaran melalui QRIS. Setelah selesai jangan lupa ss bukti tf nya, lalu klik tombol di bawah
             untuk melanjutkan ke WhatsApp.
           </p>
 
