@@ -4,6 +4,8 @@ import CartModal from '../components/CartModal'
 import products from '../data/products.json'
 import { useState } from 'react'
 
+const CAT_EMOJIS = ['😺', '😸', '😹', '😻', '😼'] // 👈 emot kucing
+
 export default function Home() {
   const [cart, setCart] = useState([])
   const [open, setOpen] = useState(false)
@@ -47,11 +49,22 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50 relative overflow-hidden">
       <Head><title>NERESTORE DIGITAL PREMIUM 🐱‍👤</title></Head>
 
-      <div className="max-w-6xl mx-auto px-4 py-6 md:py-10">
+      {/* 👇 LAYER ANIMASI KUCING MELAYANG */}
+      <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <span
+            key={i}
+            className={`floating-cat floating-cat-${i}`}
+          >
+            {CAT_EMOJIS[i % CAT_EMOJIS.length]}
+          </span>
+        ))}
+      </div>
 
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-6 md:py-10">
         {/* TOP BAR */}
         <header className="flex items-center justify-between mb-6 md:mb-8">
           <div className="flex items-center gap-3">
@@ -63,7 +76,7 @@ export default function Home() {
                 NERESTORE
               </h1>
               <p className="text-xs md:text-sm text-slate-400">
-                Toko paket premium murah & resmi
+                Toko paket premium murah &amp; resmi
               </p>
             </div>
           </div>
@@ -96,7 +109,7 @@ export default function Home() {
 
           <div className="mt-4 flex flex-wrap gap-2 text-[11px] md:text-xs text-slate-300">
             <span className="px-3 py-1 rounded-full bg-slate-900/70 border border-white/5">
-              ⚡ Proses cepat & mudah
+              ⚡ Proses cepat &amp; mudah
             </span>
             <span className="px-3 py-1 rounded-full bg-slate-900/70 border border-white/5">
               💳 Pembayaran via QRIS / TF
@@ -172,6 +185,7 @@ export default function Home() {
 
       {/* ANIMASI GLOBAL */}
       <style jsx global>{`
+        /* ANIMASI TOMBOL KERANJANG */
         @keyframes cart-bump {
           0% {
             transform: translateY(0);
@@ -191,6 +205,7 @@ export default function Home() {
           animation: cart-bump 0.3s ease-out;
         }
 
+        /* ANIMASI TOAST */
         @keyframes toast-pop {
           0% {
             transform: scale(0.9);
@@ -208,6 +223,93 @@ export default function Home() {
 
         .toast-pop {
           animation: toast-pop 0.25s ease-out;
+        }
+
+        /* 👇 ANIMASI EMOT KUCING MELAYANG */
+        @keyframes float-cat {
+          0% {
+            transform: translateY(110vh) translateX(0) scale(0.9);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.4;
+          }
+          50% {
+            opacity: 0.8;
+          }
+          100% {
+            transform: translateY(-20vh) translateX(25px) scale(1.1);
+            opacity: 0;
+          }
+        }
+
+        .floating-cat {
+          position: absolute;
+          font-size: 26px;
+          opacity: 0.35;
+          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55));
+          animation-name: float-cat;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        /* Posisi + variasi delay / durasi biar random-ish */
+        .floating-cat-0 {
+          left: 5%;
+          animation-duration: 22s;
+          animation-delay: -2s;
+        }
+        .floating-cat-1 {
+          left: 18%;
+          animation-duration: 19s;
+          animation-delay: -6s;
+        }
+        .floating-cat-2 {
+          left: 32%;
+          animation-duration: 24s;
+          animation-delay: -10s;
+        }
+        .floating-cat-3 {
+          left: 45%;
+          animation-duration: 20s;
+          animation-delay: -4s;
+        }
+        .floating-cat-4 {
+          left: 58%;
+          animation-duration: 26s;
+          animation-delay: -12s;
+        }
+        .floating-cat-5 {
+          left: 70%;
+          animation-duration: 21s;
+          animation-delay: -8s;
+        }
+        .floating-cat-6 {
+          left: 82%;
+          animation-duration: 23s;
+          animation-delay: -16s;
+        }
+        .floating-cat-7 {
+          left: 90%;
+          animation-duration: 27s;
+          animation-delay: -5s;
+        }
+        .floating-cat-8 {
+          left: 12%;
+          animation-duration: 25s;
+          animation-delay: -18s;
+        }
+        .floating-cat-9 {
+          left: 64%;
+          animation-duration: 28s;
+          animation-delay: -14s;
+        }
+
+        @media (max-width: 640px) {
+          .floating-cat {
+            font-size: 20px;
+            opacity: 0.28;
+          }
         }
       `}</style>
     </div>
