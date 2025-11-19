@@ -3,7 +3,7 @@ import { useState } from 'react'
 export default function CartPopup({ open, setOpen, cart, removeItem, total }) {
   const [showQR, setShowQR] = useState(false)
 
-  const QRIS_URL = "https://i.ibb.co/QFVFJxbB/photo-2025-09-20-12-17-02.jpg"
+  const QRIS_URL = "https://i.ibb.co.com/s7BHhLq/Gambar-Whats-App-2025-11-18-pukul-09-37-16-70b3405b.jpg"
   const WA_URL = `https://wa.me/628xxxxxxxxxx?text=Mau checkout, total: Rp ${total}` // ganti nomor
 
   if (!open) return null
