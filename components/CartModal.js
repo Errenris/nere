@@ -6,7 +6,8 @@ export default function CartModal({ open, cart, close, removeItem, checkoutWA })
   if (!open) return null
 
   const total = cart.reduce((a, b) => a + Number(b.price.replace(/[^0-9]/g, '')), 0)
-  const QRIS_URL = "https://i.ibb.co/QFVFJxbB/photo-2025-09-20-12-17-02.jpg"
+  const QRIS_URL = "/qris.jpg"
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
