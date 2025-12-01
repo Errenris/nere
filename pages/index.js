@@ -150,7 +150,7 @@ export default function Home() {
               Butuh akses lain atau instruksi lebih lengkap?
             </p>
             <a
-              href="https://sfl.gl/3ZfK"
+              href="https://linkbio.co/nerestore"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold text-white shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition"
