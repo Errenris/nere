@@ -19,5 +19,12 @@
     "description": "Bisa akses semua ftur pro kecuali upload font sdb",
     "price": "10000",
     "image": "/placeholder.png"
+  },
+  {
+    "id": 4,
+    "title": "CANVA PRO 1 TAHUN PROMO",
+    "description": "Bisa akses semua ftur pro kecuali upload font sdb",
+    "price": "4000",
+    "image": "/placeholder.png"
   }
 ]
