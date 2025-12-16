@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50 relative overflow-hidden">
-      <Head><title>NERESTORE DIGITAL PREMIUM 🐱‍👤</title></Head>
+      <Head><title>NERESTORE DIGITAL PREMIUM 🍃</title></Head>
 
       {/* 👇 LAYER ANIMASI KUCING MELAYANG */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
